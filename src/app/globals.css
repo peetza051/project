@@ -65,3 +65,19 @@
       --ring: 212.7 26.8% 83.9%;
     }
   }
+
+
+
+  html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space /
+    background: transparent;  / Optional: just make scrollbar invisible /
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;  / Optional: show position indicator in red */
+}
