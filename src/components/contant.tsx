@@ -9,7 +9,7 @@ const Contant = () => {
   return (
     <div className="w-full">
       <FilterP />
-      <CardPage items={posts} />
+     
     </div>
   );
 };

@@ -60,7 +60,7 @@ const Navbar = () => {
   const [number, setNumber] = React.useState<number>(10);
 
   return (
-    <div className={` p-0  ${show ? "bg-black/[.3]" : "bg-transparent"}`}>
+    <div className={`transition-all p-0  ${show ? "bg-black/[.3]" : "bg-transparent"}`}>
       {/* <div className={`p-0  ${ 
        show ? 
          number > 1 ? "bg-fuchsia-400"
