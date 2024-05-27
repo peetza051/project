@@ -1,7 +1,5 @@
-"use client";
 
-import Navbar from "@/components/navbar";
-
+import Navbar from "@/layout/navbar";
 
 export default function MainLayout({
   children,
@@ -9,11 +7,12 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen  max-w-[1400px] w-full mx-auto relative">
-      <div className=" container fixed top-0 z-50 ">
-      <Navbar />
+    // <div className="min-h-screen w-[1400px] mx-auto relative">
+    <div className="min-h-screen  mx-auto relative">
+      <div className="w-full fixed top-0 z-50 ">
+        <Navbar />
       </div>
-      <div className="border-y-1 border-divider">{children}</div>
+      <div className="bg-gray-100 border-y-1 border-divider">{children}</div>
     </div>
   );
 }
