@@ -1,6 +1,6 @@
 "use client";
 
-import { Info } from "lucide-react";
+
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 
 import useDialog from "@/store/dialog/dialog.store";
-import {posts} from "../../constant/constTH";
+
 import Image from "next/image";
 
 
@@ -20,6 +20,7 @@ import Image from "next/image";
 
 export default function ModelCard() {
   const { itemPost,closeDialog } = useDialog();
+  
   return (
     <DialogContent className=" max-sm:max-w-[280px]  w-full overflow-scroll    max-h-[530px] sm:max-h-[650px] h-full mt-0 mr-5 ">
       <DialogHeader>

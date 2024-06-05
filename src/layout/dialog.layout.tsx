@@ -1,6 +1,7 @@
 'use client';
 
 import ModelCard from "@/components/dialog/modelCard";
+import ModelCreate from "@/components/dialog/modelcreate";
 import { Dialog } from "@/components/ui/dialog";
 import useDialog from "@/store/dialog/dialog.store";
 import { DialogViews } from "@/store/dialog/dialog.type";
@@ -11,9 +12,14 @@ function DialogUI() {
     <Dialog open={displayDialog} onOpenChange={closeDialog}>
       {dialogView === DialogViews.MODEL_CARD_DIALOG && (
         <ModelCard />
+        
       )}
-
+      {dialogView === DialogViews.MODEL_CREATE_DIALOG && (
+        <ModelCreate />
+        
+      )}
     </Dialog>
+    
   );
 }
 export default function DialogLayout() {

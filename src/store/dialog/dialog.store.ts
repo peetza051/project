@@ -19,9 +19,24 @@ const initialState = {
   },
 };
 
+const initialState2 = {
+  displayDialog: false,
+  dialogView: DialogViews.MODEL_CREATE_DIALOG,
+  itemPost: {
+    tarvel: {
+        image: "",
+        name: "",
+        description: "",
+      },
+      opentime: "",
+      address: "",
+      category: ""
+  },
+};
+
 const useDialog = create(
   devtools((set: StoreApi<IDialog>["setState"]) => ({
-    ...initialState,
+    ...initialState,...initialState2, 
     openDialog: () => {
       set({ displayDialog: true });
     },
@@ -37,5 +52,7 @@ const useDialog = create(
     },
   }))
 );
+
+
 
 export default useDialog;

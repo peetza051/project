@@ -22,16 +22,16 @@ const TopFiveCard = (items: items) => {
               onClick={() => {
                 setItemPost(post) , setDialogView(DialogViews.MODEL_CARD_DIALOG), openDialog();
               }}
-              className="bg-white ml-2 rounded-xl mt-14 min-w-[300px] h-[350px] drop-shadow-lg  cursor-pointer"
+              className="bg-white ml-2 rounded-xl mt-14 min-w-[300px] h-[350px] drop-shadow-lg  cursor-pointer p-4"
             >
               <Image
-                className=" p-4  rounded-xl max-h-[170px] w-[300px] "
+                className="   rounded-xl max-h-[170px] w-[300px] "
                 src={post.tarvel.image}
                 alt="ImageTarvel"
                 width={200}
                 height={200}
               />
-              <div className="pb-4 text-sm pl-4 ">{post.tarvel.name}</div>
+              <div className="pb-4 text-sm pl-4 pt-4">{post.tarvel.name}</div>
               <div>
                 <li className=" text-gray-400 text-sm pl-4 ">{post.address}</li>
                 <li className=" text-gray-400 text-sm pl-4 ">
