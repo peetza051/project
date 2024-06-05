@@ -8,6 +8,7 @@ import { Ipost } from "@/interface/PostItem";
 import { useState } from "react";
 interface items {
   items: Ipost[];
+  filter: string;
 }
 
 const CardPage = (items: items) => {
@@ -17,10 +18,14 @@ const CardPage = (items: items) => {
   const showMoreItems = () => {
     seteiei((prevValue) => prevValue + 4);
   };
+  const filteredItems = items.items.filter((post) => {
+    return items.filter === "ทั้งหมด" || post.category === items.filter; //items.filter === "ทั้งหมด" คือ ถ้าส่งมาเป็นคำว่า "ทั้งหมด" แล้วมันเป็นจริงให้แสดงทั้งหมด || (หรือ) post.category === items.filter ถ้าข้อมูลที่ส่งมาเท่ากับ ค่า post.category เป็นจริงให้แสดงตามเงื่อนไข
+  });
+  console.log(items.filter)
   return (
     <>
-      <div className="max-w-[1440px] grid grid-cols-4 px-5 container ">
-        {items.items.slice(0, eiei).map((post, index) => {
+      <div className="max-w-[1440px] overflow-y-auto flex flex-wrap px-5 container justify-start items-center pl-9 ">
+        {filteredItems.slice(0, eiei).map((post, index) => {
           return (
             <div
               key={index}
@@ -29,7 +34,7 @@ const CardPage = (items: items) => {
                   setDialogView(DialogViews.MODEL_CARD_DIALOG),
                   openDialog();
               }}
-              className="bg-white ml-2 rounded-xl mt-14 min-w-[300px] h-[350px] drop-shadow-lg  cursor-pointer"
+              className="bg-white ml-2 rounded-xl mt-14 max-w-[300px] h-[390px] drop-shadow-lg  cursor-pointer"
             >
             <div className="  p-4">
             <Image

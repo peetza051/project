@@ -18,9 +18,9 @@ import {
   User,
   UserPlus,
   Users,
-} from "lucide-react"
- 
-import { Button } from "@/components/ui/button"
+} from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,7 +34,18 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Navbar = () => {
   const [show, setShow] = React.useState(false);
@@ -60,7 +71,13 @@ const Navbar = () => {
   const [number, setNumber] = React.useState<number>(10);
 
   return (
-    <div className={` p-0  ${show ? "bg-black/[.3]" : "bg-transparent"}`}>
+    <div
+      className={` p-0  ${
+        show
+          ? "bg-black/[.3] bg-gradient-to-t from-transparent to-white opacity-100"
+          : "bg-transparent"
+      }  `}
+    >
       {/* <div className={`p-0  ${ 
        show ? 
          number > 1 ? "bg-fuchsia-400"
@@ -71,18 +88,20 @@ const Navbar = () => {
       // {number && 500 && <div className="text-2xl text-red-700">Number : {number.toString()} </div>}
      // {number ?? "false"}*/}
 
-      <div className="flex justify-between items-center  container">
+      <div className="flex justify-between items-center  ">
         <div className=" object-none ">
-          <Image
-            className=" object-none  "
-            src={"/image/travel.png"}
-            height={48}
-            width={100}
-            alt="logo"
-          />
+          <Link href={"#HOME"}>
+            <Image
+              className=" object-none  "
+              src={"/image/travel.png"}
+              height={48}
+              width={100}
+              alt="logo"
+            />
+          </Link>
         </div>
-        <div className=" flex justify-center items-center gap-10">
-          <div className=" text-white gap-5 flex flex-row text-center">
+        <div className=" justify-center items-center gap-10 sm:text-xs sm:gap-2 md:flex hidden">
+          <div className=" text-white gap-5 flex flex-row text-center ">
             <Link href={"#HOME"}>
               <span className="hover:text-violet-600 cursor-pointer pr-6 font-medium [text-shadow:_0_1px_0_rgb(0_0_0_/_50%)]">
                 h o m e
@@ -98,15 +117,22 @@ const Navbar = () => {
                 c o n t e n t
               </span>
             </Link>
-            <Link href={"#"}>
+            <Link href={"/login"}>
               <span className="hover:text-violet-600 cursor-pointer pr-6 font-medium [text-shadow:_0_1px_0_rgb(0_0_0_/_50%)]">
                 m y v l o g
               </span>
             </Link>
           </div>
           <div className=" ">
-            <span className="p-4 px-6  bg-white/[.3] text-white  ">login</span>
-            <span className=" p-4  bg-black/[.3] text-white ">sign up</span>
+            <Link
+              href={"/login"}
+              className="p-4 px-6  bg-white/[.3] text-white "
+            >
+              login
+            </Link>
+            <Link href={"/signup"} className=" p-4  bg-black/[.3] text-white ">
+              sign up
+            </Link>
           </div>
 
           <div className="flex flex-col">
@@ -134,10 +160,44 @@ const Navbar = () => {
                 alt="TH"
                 className="  "
               />
-              
-      
             </div>
           </div>
+        </div>
+        <div className=" md:hidden flex mr-5">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-align-justify"
+              >
+                <line x1="3" x2="21" y1="6" y2="6" />
+                <line x1="3" x2="21" y1="12" y2="12" />
+                <line x1="3" x2="21" y1="18" y2="18" />
+              </svg>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <Link href={"#HOME"}>
+                <DropdownMenuItem>HOME</DropdownMenuItem>
+              </Link>
+              <Link href={"#ABOUT"}>
+                <DropdownMenuItem>ABOUT</DropdownMenuItem>
+              </Link>
+              <Link href={"#CONTANT"}>
+                <DropdownMenuItem>CONTANT</DropdownMenuItem>
+              </Link>
+              <Link href={"/login"}>
+                <DropdownMenuItem>MY VLOG</DropdownMenuItem>
+              </Link>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>
